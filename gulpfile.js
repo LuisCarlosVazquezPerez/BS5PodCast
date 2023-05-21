@@ -25,6 +25,7 @@ function cssbuild(done) {
     .pipe(purgecss({
         content: ['index.html']
     }))
+.pipe(dest('build/css'))
 
     done();
 }
@@ -44,3 +45,4 @@ exports.css = css;
 exports.dev = dev;
 exports.imagenes = imagenes;
 exports.default = series(imagenes, css, dev);
+exports.build = series (cssbuild);
